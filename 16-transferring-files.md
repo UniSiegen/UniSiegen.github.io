@@ -308,9 +308,9 @@ OK!
 
 ```bash
 [you@laptop:~]$ ssh username@omni.zimt.uni-siegen.de
-[username@login02 ~]$ wget -O amdahl.tar.gz https://github.com/hpc-carpentry/amdahl/tarball/main
+[username@hpc-login02 ~]$ wget -O amdahl.tar.gz https://github.com/hpc-carpentry/amdahl/tarball/main
 # or
-[username@login02 ~]$ curl -o amdahl.tar.gz https://github.com/hpc-carpentry/amdahl/tarball/main
+[username@hpc-login02 ~]$ curl -o amdahl.tar.gz https://github.com/hpc-carpentry/amdahl/tarball/main
 ```
 
 :::::::::::::::::::::::::

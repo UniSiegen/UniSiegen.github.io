@@ -42,8 +42,8 @@ Move into the extracted directory, then use the Package Installer for Python,
 or `pip`, to install it in your ("user") home directory:
 
 ```bash
-[username@login02 ~]$ cd amdahl
-[username@login02 ~]$ python3 -m pip install --user .
+[username@hpc-login02 ~]$ cd amdahl
+[username@hpc-login02 ~]$ python3 -m pip install --user .
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -83,12 +83,12 @@ then `rsync` it to the cluster, extract, and install:
 
 ```bash
 [you@laptop:~]$ ssh username@omni.zimt.uni-siegen.de
-[username@login02 ~]$ tar -xvzf mpi4py.tar.gz  # extract the archive
-[username@login02 ~]$ mv mpi4py* mpi4py        # rename the directory
-[username@login02 ~]$ cd mpi4py
-[username@login02 ~]$ python3 -m pip install --user .
-[username@login02 ~]$ cd ../amdahl
-[username@login02 ~]$ python3 -m pip install --user .
+[username@hpc-login02 ~]$ tar -xvzf mpi4py.tar.gz  # extract the archive
+[username@hpc-login02 ~]$ mv mpi4py* mpi4py        # rename the directory
+[username@hpc-login02 ~]$ cd mpi4py
+[username@hpc-login02 ~]$ python3 -m pip install --user .
+[username@hpc-login02 ~]$ cd ../amdahl
+[username@hpc-login02 ~]$ python3 -m pip install --user .
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -109,7 +109,7 @@ To check whether this warning is a problem, use `which` to search for the
 `amdahl` program:
 
 ```bash
-[username@login02 ~]$ which amdahl
+[username@hpc-login02 ~]$ which amdahl
 ```
 
 If the command returns no output, displaying a new prompt, it means the file
@@ -119,8 +119,8 @@ Edit your shell configuration file as follows, then log off the cluster and
 back on again so it takes effect.
 
 ```bash
-[username@login02 ~]$ nano ~/.bashrc
-[username@login02 ~]$ tail ~/.bashrc
+[username@hpc-login02 ~]$ nano ~/.bashrc
+[username@hpc-login02 ~]$ tail ~/.bashrc
 ```
 
 ```output
@@ -139,7 +139,7 @@ If you had to load a Python module, load it again.
 Many command-line programs include a "help" message. Try it with `amdahl`:
 
 ```bash
-[username@login02 ~]$ amdahl --help
+[username@hpc-login02 ~]$ amdahl --help
 ```
 
 ```output
@@ -166,8 +166,8 @@ Create a submission file, requesting one task on a single node, then launch it.
 
 
 ```bash
-[username@login02 ~]$ nano serial-job.sh
-[username@login02 ~]$ cat serial-job.sh
+[username@hpc-login02 ~]$ nano serial-job.sh
+[username@hpc-login02 ~]$ cat serial-job.sh
 ```
 
 ```bash
@@ -185,14 +185,14 @@ amdahl
 ```
 
 ```bash
-[username@login02 ~]$ sbatch serial-job.sh
+[username@hpc-login02 ~]$ sbatch serial-job.sh
 ```
 
 As before, use the Slurm status commands to check whether your job
 is running and when it ends:
 
 ```bash
-[username@login02 ~]$ squeue -u username
+[username@hpc-login02 ~]$ squeue -u username
 ```
 
 Use `ls` to locate the output file. The `-t` flag sorts in
@@ -206,7 +206,7 @@ The cluster output should be written to a file in the folder you launched the
 job from. For example,
 
 ```bash
-[username@login02 ~]$ ls -t
+[username@hpc-login02 ~]$ ls -t
 ```
 
 ```output
@@ -214,7 +214,7 @@ slurm-347087.out  serial-job.sh  amdahl  README.md  LICENSE.txt
 ```
 
 ```bash
-[username@login02 ~]$ cat slurm-347087.out
+[username@hpc-login02 ~]$ cat slurm-347087.out
 ```
 
 ```output
@@ -287,9 +287,9 @@ Let's modify the job script to request more cores and use the MPI run-time.
 
 
 ```bash
-[username@login02 ~]$ cp serial-job.sh parallel-job.sh
-[username@login02 ~]$ nano parallel-job.sh
-[username@login02 ~]$ cat parallel-job.sh
+[username@hpc-login02 ~]$ cp serial-job.sh parallel-job.sh
+[username@hpc-login02 ~]$ nano parallel-job.sh
+[username@hpc-login02 ~]$ cat parallel-job.sh
 ```
 
 ```bash
@@ -313,13 +313,13 @@ from how we submitted the serial job: all the parallel settings are in the
 batch file rather than the command line.
 
 ```bash
-[username@login02 ~]$ sbatch parallel-job.sh
+[username@hpc-login02 ~]$ sbatch parallel-job.sh
 ```
 
 As before, use the status commands to check when your job runs.
 
 ```bash
-[username@login02 ~]$ ls -t
+[username@hpc-login02 ~]$ ls -t
 ```
 
 ```output
@@ -327,7 +327,7 @@ slurm-347178.out  parallel-job.sh  slurm-347087.out  serial-job.sh  amdahl  READ
 ```
 
 ```bash
-[username@login02 ~]$ cat slurm-347178.out
+[username@hpc-login02 ~]$ cat slurm-347178.out
 ```
 
 ```output
@@ -405,8 +405,8 @@ code gets.
 
 
 ```bash
-[username@login02 ~]$ nano parallel-job.sh
-[username@login02 ~]$ cat parallel-job.sh
+[username@hpc-login02 ~]$ nano parallel-job.sh
+[username@hpc-login02 ~]$ cat parallel-job.sh
 ```
 
 ```bash
@@ -430,13 +430,13 @@ from how we submitted the serial job: all the parallel settings are in the
 batch file rather than the command line.
 
 ```bash
-[username@login02 ~]$ sbatch parallel-job.sh
+[username@hpc-login02 ~]$ sbatch parallel-job.sh
 ```
 
 As before, use the status commands to check when your job runs.
 
 ```bash
-[username@login02 ~]$ ls -t
+[username@hpc-login02 ~]$ ls -t
 ```
 
 ```output
@@ -444,7 +444,7 @@ slurm-347271.out  parallel-job.sh  slurm-347178.out  slurm-347087.out  serial-jo
 ```
 
 ```bash
-[username@login02 ~]$ cat slurm-347178.out
+[username@hpc-login02 ~]$ cat slurm-347178.out
 ```
 
 ```output
@@ -493,7 +493,7 @@ S(t_{n}) = \frac{t_{1}}{t_{n}}
 $$
 
 ```bash
-[username@login02 ~]$ for n in 30.033 10.888 7.697; do python3 -c "print(30.033 / $n)"; done
+[username@hpc-login02 ~]$ for n in 30.033 10.888 7.697; do python3 -c "print(30.033 / $n)"; done
 ```
 
 | Number of CPUs | Speedup       | Ideal |

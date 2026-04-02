@@ -78,7 +78,7 @@ To see available software modules, use `module avail`:
 
 
 ```bash
-[username@login02 ~]$ module avail | less
+[username@hpc-login02 ~]$ module avail | less
 ```
 
 ```output
@@ -111,7 +111,7 @@ loaded in your environment. If you have no modules loaded, you will see a
 message telling you so.
 
 ```bash
-[username@login02 ~]$ module list
+[username@hpc-login02 ~]$ module list
 ```
 
 ```output
@@ -128,7 +128,7 @@ programs the same way that Bash does, so we can use it to tell us
 where a particular piece of software is stored.
 
 ```bash
-[username@login02 ~]$ which python3
+[username@hpc-login02 ~]$ which python3
 ```
 
 
@@ -167,8 +167,8 @@ We can load the `python3` command with `module load`:
 
 
 ```bash
-[username@login02 ~]$ module load Python
-[username@login02 ~]$ which python3
+[username@hpc-login02 ~]$ module load Python
+[username@hpc-login02 ~]$ which python3
 ```
 
 ```output
@@ -185,7 +185,7 @@ before giving up and telling us it can't find it. As with all environment
 variables we can print it out using `echo`.
 
 ```bash
-[username@login02 ~]$ echo $PATH
+[username@hpc-login02 ~]$ echo $PATH
 ```
 
 ```output
@@ -199,7 +199,7 @@ ran the `module load` command, it added a directory to the beginning of our
 
 
 ```bash
-[username@login02 ~]$ ls /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/software/Python/3.x.y-GCCcore-x.y.z/bin
+[username@hpc-login02 ~]$ ls /cvmfs/pilot.eessi-hpc.org/2020.12/software/x86_64/amd/zen2/software/Python/3.x.y-GCCcore-x.y.z/bin
 ```
 
 ```output
@@ -228,7 +228,7 @@ To demonstrate, let's use `module list`. `module list` shows all loaded
 software modules.
 
 ```bash
-[username@login02 ~]$ module list
+[username@hpc-login02 ~]$ module list
 ```
 
 ```output
@@ -239,8 +239,8 @@ Currently Loaded Modules:
 ```
 
 ```bash
-[username@login02 ~]$ module load GROMACS
-[username@login02 ~]$ module list
+[username@hpc-login02 ~]$ module load GROMACS
+[username@hpc-login02 ~]$ module list
 ```
 
 ```output
@@ -266,8 +266,8 @@ package), also loaded `GMP/6.2.0-GCCcore-x.y.z` and
 `GROMACS` package.
 
 ```bash
-[username@login02 ~]$ module unload GROMACS
-[username@login02 ~]$ module list
+[username@hpc-login02 ~]$ module unload GROMACS
+[username@hpc-login02 ~]$ module list
 ```
 
 ```output
@@ -292,8 +292,8 @@ not). If we wanted to unload everything at once, we could run `module purge`
 (unloads everything).
 
 ```bash
-[username@login02 ~]$ module purge
-[username@login02 ~]$ module list
+[username@hpc-login02 ~]$ module purge
+[username@hpc-login02 ~]$ module list
 ```
 
 ```output
@@ -331,7 +331,7 @@ there may be reams of output:
 
 
 ```bash
-[username@login02 ~]$ module avail | less
+[username@hpc-login02 ~]$ module avail | less
 ```
 
 ```output
@@ -374,8 +374,8 @@ compute node).
 ## Solution
 
 ```bash
-[username@login02 ~]$ nano python-module.sh
-[username@login02 ~]$ cat python-module.sh
+[username@hpc-login02 ~]$ nano python-module.sh
+[username@hpc-login02 ~]$ cat python-module.sh
 ```
 
 ```output
@@ -389,7 +389,7 @@ python3 --version
 ```
 
 ```bash
-[username@login02 ~]$ sbatch  python-module.sh
+[username@hpc-login02 ~]$ sbatch  python-module.sh
 ```
 
 :::::::::::::::::::::::::
